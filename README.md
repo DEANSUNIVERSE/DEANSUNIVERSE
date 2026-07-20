@@ -17,11 +17,11 @@
 
 ### 🏆 GitHub Achievements & Trophies
 
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=DEANSUNIVERSE&theme=tokyonight&no-bg=true&no-frame=true&margin-w=15&column=4" alt="GitHub Trophies" />
-</div>
-
----
+<p align="center">
+  <a href="https://github.com/DEANSUNIVERSE">
+    <img src="https://github-profile-trophy.vercel.app/?username=DEANSUNIVERSE&theme=onedark&column=6&margin-w=15&margin-h=15&no-bg=true&no-frame=false" alt="DEANSUNIVERSE Trophies" />
+  </a>
+</p>
 
 ### 🐍 Contribution Matrix & Isometric 3D City
 
