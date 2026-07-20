@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/DEANSUNIVERSE">
-    <img src="https://github-profile-trophy.vercel.app/?username=DEANSUNIVERSE&theme=onedark&column=6&margin-w=15&margin-h=15&no-bg=true&no-frame=false" alt="DEANSUNIVERSE Trophies" />
+    <img src="https://wallpaperaccess.com/full/5976549.jpg" alt="DEANSUNIVERSE Trophies" />
   </a>
 </p>
 
