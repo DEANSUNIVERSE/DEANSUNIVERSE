@@ -194,157 +194,22 @@ Every Coad matters
 
 
 
-# ⚔️ EXPEDITIONS
-
-
-
-*"Every project is another step beyond the ordinary."*
-
-
-
-</div>
-
-
-
-<table>
-
-<tr>
-
-<td width="50%">
-
-
-
-## 🚀 DEAN'S UNIVERSE
-
-
-
-A modern frontend experience inspired by cinematic UI, smooth interactions and meaningful animations.
-
-
-
-### ⚡ Highlights
-
-
-
-- 🎥 3D Scroll Animation
-
-- ⚛ React Architecture
-
-- 🎨 Responsive UI
-
-- 🚀 Performance Optimized
-
-- 📱 Mobile Friendly
-
-- 🌙 Dark Theme
-
-
-
-</td>
-
-
-
-<td width="50%">
-
-
-
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=DEANSUNIVERSE&repo=YOUR_REPOSITORY&theme=tokyonight&hide_border=true"/>
-
-
-
-</td>
-
-</tr>
-
-</table>
-
-
-
----
-
-
-
-<div align="center">
-
-
-
 # 📊 INTELLIGENCE REPORTS
 
-
-
-*"Knowledge wins battles before they begin."*
-
-
-
-</div>
-
-
-
 <p align="center">
-
-
-
-<img width="48%" src="https://github-readme-stats.vercel.app/api?username=DEANSUNIVERSE&show_icons=true&theme=tokyonight&hide_border=true&count_private=true"/>
-
-
-
-<img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DEANSUNIVERSE&layout=compact&theme=tokyonight&hide_border=true"/>
-
-
-
+  <i>"Knowledge wins battles before they begin."</i>
 </p>
-
-
-
-<br>
-
-
-
+<br/>
 <p align="center">
-
-
-
-<img width="97%" src="https://github-readme-streak-stats.herokuapp.com/?user=DEANSUNIVERSE&theme=tokyonight&hide_border=true"/>
-
-
-
+  <img width="48%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DEANSUNIVERSE&theme=tokyonight" alt="Dean's GitHub Stats" />
+  &nbsp;
+  <img width="48%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=DEANSUNIVERSE&theme=tokyonight" alt="Dean's Top Languages" />
 </p>
-
-
+<p align="center">
+  <img width="97%" src="https://github-readme-streak-stats.herokuapp.com/?user=DEANSUNIVERSE&theme=tokyonight&hide_border=true" alt="Dean's Streak Stats" />
+</p>
 
 ---
-
-
-
-<div align="center">
-
-
-
-# 🏆 EXPEDITION RECORDS
-
-
-
-</div>
-
-
-
-<p align="center">
-
-
-
-<img src="https://github-profile-trophy.vercel.app/?username=DEANSUNIVERSE&theme=tokyonight&no-frame=true&row=2&column=4"/>
-
-
-
-</p>
-
-
-
----
-
-
-
-<div align="center">
 
 
 
