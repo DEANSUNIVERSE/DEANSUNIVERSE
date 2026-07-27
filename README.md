@@ -89,12 +89,15 @@ Learning:
 
 ### ⚡ Philosophy
 ```text
+
 Build Fast.
 Build Clean.
 Build Beautiful.
+Build Toghter
 Animation has a purpose.
 Every pixel matters.
-
+Every Ratio matters
+Every Coad matters
 ```
 </td>
 </tr>
@@ -102,29 +105,14 @@ Every pixel matters.
 
 ---
 # 🚀 TECH STACK
-
-
-
 <div align="center">
-
-
-
 <img src="https://skillicons.dev/icons?i=html,css,js,react,nodejs,mongodb,git,github,vscode,figma,npm,vite&perline=6"/>
-
-
-
 </div>
 
-
-
 ---
-
-
-
 # ⚡ SPECIALIZATION
-
 <div align="center">
-
+  
 ### 💻 Frontend & Core Technologies
 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
@@ -146,122 +134,30 @@ Every pixel matters.
 | **Responsive Web Design** | `████████████████████` | **100%** |
 
 </div>
+
+
 ---
-
-
-
 # 🌌 CURRENT FOCUS
 
-
-
 <div align="center">
 
-
-
-| 🎯 | Currently Working On |
-
-|----|----------------------|
-
-| ⚛ | React Applications |
-
-| 🎬 | GSAP Scroll Animations |
-
-| 🌐 | Modern Web Interfaces |
-
-| 🚀 | Performance Optimization |
-
-| 📱 | Responsive UI Systems |
-
-| ✨ | Premium User Experience |
-
-
+| 🚀 Status | 🎯 Core Area | 💡 Primary Objective |
+| :---: | :--- | :--- |
+| <img src="https://img.shields.io/badge/ACTIVE-⚛️-blue?style=flat-square&color=00e5ff" /> | **React Applications** | Building scalable, component-driven web apps |
+| <img src="https://img.shields.io/badge/ACTIVE-🎬-green?style=flat-square&color=88ce02" /> | **GSAP Animations** | Crafting silky-smooth scroll & motion experiences |
+| <img src="https://img.shields.io/badge/FOCUS-🌐-purple?style=flat-square&color=7b61ff" /> | **Modern Web Interfaces** | Designing futuristic, interactive glassmorphic UI |
+| <img src="https://img.shields.io/badge/FOCUS-⚡-orange?style=flat-square&color=ff6c37" /> | **Performance Tuning** | Optimizing layout paint times, bundle sizes & 120fps animations |
+| <img src="https://img.shields.io/badge/ACTIVE-📱-pink?style=flat-square&color=ff2d75" /> | **Responsive Systems** | Mobile-first, fluid layout systems across all viewports |
+| <img src="https://img.shields.io/badge/FOCUS-✨-gold?style=flat-square&color=f7df1e" /> | **Premium UX** | Elevating micro-interactions, accessibility & user feel |
 
 </div>
 
 
-
 ---
-
-
-
-# 💼 FEATURED PROJECTS
-
-
-
-<div align="center">
-
-
-
-| 🚀 Project | Description |
-
-|------------|-------------|
-
-| 🌌 Anime Portfolio | Cinematic portfolio with modern UI |
-
-| ⚡ React Dashboard | Component based architecture |
-
-| 🎬 GSAP Scroll | Premium scrolling animations |
-
-| 💻 Landing Pages | High performance responsive websites |
-
-
-
-</div>
-
-
-
----
-
-
-
 # 🎯 DEVELOPER MINDSET
-
-
-
-<div align="center">
-
-
-
-```text
-
-while(alive){
-
-
-
-    Learn();
-
-
-
-    Build();
-
-
-
-    Improve();
-
-
-
-    Repeat();
-
-
-
-}
-
-```
-
-
-
-</div>
-
-
+5D
 
 ---
-
-
-
-<div align="center">
-
-
-
 ## ⚙️ DEVELOPMENT ENVIRONMENT
 
 
