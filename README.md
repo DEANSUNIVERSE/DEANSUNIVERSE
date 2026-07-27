@@ -210,69 +210,24 @@ Every Coad matters
 </p>
 
 ---
-
-
-
 # 🌌 CONTRIBUTION MATRIX
 
-
-
-*"Every green square tells a story."*
-
-
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=DEANSUNIVERSE&theme=tokyonight"/>
-
-
+<div align="center">
+> *"Every green square tells a story."*
+<br/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=DEANSUNIVERSE&theme=tokyonight" alt="Dean's Profile Details" />
+<br/><br/>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DEANSUNIVERSE/DEANSUNIVERSE/output/github-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DEANSUNIVERSE/DEANSUNIVERSE/output/github-snake.svg">
+    <img src="https://raw.githubusercontent.com/DEANSUNIVERSE/DEANSUNIVERSE/output/github-snake.svg" alt="GitHub Contribution Snake" width="100%" />
+  </picture>
+</p>
 
 </div>
 
-
-
-<br>
-
-
-
-<p align="center">
-
-
-
-<picture>
-
-
-
-<source media="(prefers-color-scheme: dark)"
-
-srcset="https://raw.githubusercontent.com/DEANSUNIVERSE/DEANSUNIVERSE/output/github-snake-dark.svg">
-
-
-
-<source media="(prefers-color-scheme: light)"
-
-srcset="https://raw.githubusercontent.com/DEANSUNIVERSE/DEANSUNIVERSE/output/github-snake.svg">
-
-
-
-<img src="https://raw.githubusercontent.com/DEANSUNIVERSE/DEANSUNIVERSE/output/github-snake.svg"/>
-
-
-
-</picture>
-
-
-
-</p>
-
-
-
 ---
-
-
-
-<div align="center">
-
-
-
 # 🎧 CURRENT TRANSMISSION
 
 
@@ -297,108 +252,5 @@ srcset="https://raw.githubusercontent.com/DEANSUNIVERSE/DEANSUNIVERSE/output/git
 
 
 
-# 💻 DEVELOPER TERMINAL
-
-
-
-</div>
-
-
-
-```bash
-
-
-
-$ whoami
-
-
-
-Dean
-
-
-
-Frontend Engineer
-
-
-
-UI Architect
-
-
-
-Anime Inspired Creator
-
-
-
-$ status
-
-
-
-Building...
-
-
-
-$ mission
-
-
-
-Create unforgettable web experiences.
-
-
-
-$ philosophy
-
-
-
-Keep Moving Forward.
-
-
-
-```
-
-
-
 ---
 
-
-
-<div align="center">
-
-
-
-# 🌐 COMMUNICATION NETWORK
-
-
-
-<a href="mailto:epicgameglider@gmail.com">
-
-<img src="https://img.shields.io/badge/EMAIL-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
-
-</a>
-
-
-
-<a href="https://youtube.com/@deans_universe">
-
-<img src="https://img.shields.io/badge/YOUTUBE-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/>
-
-</a>
-
-
-
-<a href="https://instagram.com/eren_jeahger">
-
-<img src="https://img.shields.io/badge/INSTAGRAM-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
-
-</a>
-
-
-
-<a href="#">
-
-<img src="https://img.shields.io/badge/LINKEDIN-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
-
-</a>
-
-
-
-</div>
