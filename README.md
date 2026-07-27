@@ -1,99 +1,25 @@
 <div align="center">
 
+  <!-- Waving Header Banner -->
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0D1117,30:00E5FF,70:7B2FF7,100:0D1117&text=DEAN'S%20UNIVERSE&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=40" alt="Dean's Universe Header" />
 
+  <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0D1117,30:00E5FF,70:7B2FF7,100:0D1117&text=DEAN'S%20UNIVERSE&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=40"/>
+  <!-- Dynamic Typing SVG Title -->
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=30&duration=2500&pause=1200&color=00E5FF&center=true&vCenter=true&width=900&lines=%F0%9F%91%BD+WELCOME+TO+DEAN'S+UNIVERSE;%F0%9F%92%BB+Frontend+Engineer;%F0%9F%8E%AE+Anime+Inspired+UI+Architect;%F0%9F%94%A5+React+%7C+GSAP+%7C+JavaScript;%F0%9F%8C%8C+Building+Cinematic+Digital+Experiences" alt="Typing Text" />
 
+  <br/><br/>
 
-
-<br>
-
-
-
-<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=30&duration=2500&pause=1200&color=00E5FF&center=true&vCenter=true&width=900&lines=%F0%9F%91%BD+WELCOME+TO+DEAN'S+UNIVERSE;%F0%9F%92%BB+Frontend+Engineer;%F0%9F%8E%AE+Anime+Inspired+UI+Architect;%F0%9F%94%A5+React+%7C+GSAP+%7C+JavaScript;%F0%9F%8C%8C+Building+Cinematic+Digital+Experiences"/>
-
-
-
-<br><br>
-
-
-
-<img src="https://komarev.com/ghpvc/?username=DEANSUNIVERSE&label=PROFILE+VIEWS&style=for-the-badge&color=00E5FF"/>
-
-
-
-<img src="https://img.shields.io/github/followers/DEANSUNIVERSE?style=for-the-badge&color=7B2FF7&labelColor=0D1117"/>
-
-
-
-<img src="https://img.shields.io/github/stars/DEANSUNIVERSE?style=for-the-badge&color=00E5FF&labelColor=0D1117"/>
-
-
+  <!-- Live Stats Badges -->
+  <img src="https://komarev.com/ghpvc/?username=DEANSUNIVERSE&label=PROFILE+VIEWS&style=for-the-badge&color=00E5FF" alt="Profile Views" />
+  &nbsp;
+  <img src="https://img.shields.io/github/followers/DEANSUNIVERSE?style=for-the-badge&color=7B2FF7&labelColor=0D1117" alt="GitHub Followers" />
+  &nbsp;
+  <img src="https://img.shields.io/github/stars/DEANSUNIVERSE?style=for-the-badge&color=00E5FF&labelColor=0D1117" alt="GitHub Stars" />
 
 </div>
 
-
-
 ---
-
-
-
-# <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="35"> SYSTEM INITIALIZATION
-
-
-
-```text
-
-> booting DEAN OS v4.0 ...
-
-
-
-██████████████████████████████ 100%
-
-
-
-✔ React Engine ............ Loaded
-
-
-
-✔ GSAP Animation Core ..... Loaded
-
-
-
-✔ JavaScript Runtime ...... Loaded
-
-
-
-✔ UI Rendering System ..... Loaded
-
-
-
-✔ Cyberpunk Interface ..... Loaded
-
-
-
-✔ Anime Experience ........ Loaded
-
-
-
-✔ Portfolio Status ........ ONLINE
-
-
-
-✔ Welcome, Visitor.
-
-```
-
-
-
----
-
-
-
-<div align="center">
-
-
-
 # ⚡ WELCOME TO MY DIGITAL DIMENSION
 
 
