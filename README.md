@@ -228,28 +228,6 @@ Every Coad matters
 </div>
 
 ---
-# 🎧 CURRENT TRANSMISSION
-
-
-
-<img src="https://spotify-github-profile.vercel.app/api/view?uid=YOUR_SPOTIFY_ID&cover_image=true&theme=novatorem&show_offline=true&background_color=0d1117&interchange=true&bar_color=53b14f&bar_color_cover=false"/>
-
-
-
-### *Music fuels every commit.*
-
-
-
-</div>
-
-
-
----
-
-
-
-<div align="center">
-
 
 ---
 # 🌐 COMMUNICATION NETWORK
