@@ -1,40 +1,38 @@
 <div align="center">
 
-  <!-- Waving Header Banner -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:0D1117,30:00E5FF,70:7B2FF7,100:0D1117&text=DEAN'S%20UNIVERSE&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=40" alt="Dean's Universe Header" />
+  <!-- Waving Cyber Header Banner -->
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=0:050505,20:111827,45:00E5FF,70:7B2FF7,100:050505&text=DEAN'S%20UNIVERSE&fontSize=65&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Crafting%20Cinematic%20Digital%20Experiences&descSize=20&descAlignY=60" width="100%" alt="Dean's Universe Banner" />
 
   <br/>
 
-  <!-- Dynamic Typing SVG Title -->
-  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=30&duration=2500&pause=1200&color=00E5FF&center=true&vCenter=true&width=900&lines=%F0%9F%91%BD+WELCOME+TO+DEAN'S+UNIVERSE;%F0%9F%92%BB+Frontend+Engineer;%F0%9F%8E%AE+Anime+Inspired+UI+Architect;%F0%9F%94%A5+React+%7C+GSAP+%7C+JavaScript;%F0%9F%8C%8C+Building+Cinematic+Digital+Experiences" alt="Typing Text" />
+  <!-- Orbitron Typing SVG Title -->
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=32&duration=2500&pause=1000&color=00E5FF&center=true&vCenter=true&width=1000&lines=%F0%9F%91%BD+WELCOME+TO+DEAN'S+UNIVERSE;%E2%9A%A1+FRONTEND+ENGINEER;%F0%9F%8E%AE+ANIME+INSPIRED+UI+ARCHITECT;%F0%9F%9A%80+REACT+%7C+GSAP+%7C+JAVASCRIPT;%F0%9F%8C%8C+BUILDING+FUTURE+WEB+EXPERIENCES" alt="Typing Title" />
 
   <br/><br/>
 
-  <!-- Live Stats Badges -->
-  <img src="https://komarev.com/ghpvc/?username=DEANSUNIVERSE&label=PROFILE+VIEWS&style=for-the-badge&color=00E5FF" alt="Profile Views" />
+  <!-- Live Stats & Metrics Badges -->
+  <img src="https://komarev.com/ghpvc/?username=DEANSUNIVERSE&style=for-the-badge&color=00E5FF&label=VISITORS" alt="Visitors Count" />
   &nbsp;
-  <img src="https://img.shields.io/github/followers/DEANSUNIVERSE?style=for-the-badge&color=7B2FF7&labelColor=0D1117" alt="GitHub Followers" />
+  <img src="https://img.shields.io/github/followers/DEANSUNIVERSE?style=for-the-badge&color=7B2FF7&labelColor=050505" alt="GitHub Followers" />
   &nbsp;
-  <img src="https://img.shields.io/github/stars/DEANSUNIVERSE?style=for-the-badge&color=00E5FF&labelColor=0D1117" alt="GitHub Stars" />
+  <img src="https://img.shields.io/github/stars/DEANSUNIVERSE?style=for-the-badge&color=00E5FF&labelColor=050505" alt="GitHub Stars" />
+
+  <br/><br/>
+
 
 </div>
+
+
 
 ---
 # ⚡ WELCOME TO MY DIGITAL DIMENSION
 
+<div align="center">
 
-
-*"I don't just build websites.*
-
-
-
-*I create cinematic experiences where every scroll, every animation, and every interaction tells a story."*
-
-
+> *"I don't just build websites.*  
+> *I create cinematic experiences where every scroll, every animation, and every interaction tells a story."*
 
 </div>
-
-
 
 ---
 
