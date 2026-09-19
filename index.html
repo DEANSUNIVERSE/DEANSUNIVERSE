@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝕯𝖊𝖆𝖓'𝖘 𝖀𝖓𝖎𝖛𝖊𝖗𝖘𝖊 — Terminal Architecture</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;0,800;1,400&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #090a0d;
+      --card-bg: #0f1117;
+      --card-inner: #141720;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --red-accent: #fc3b56;
+      --red-glow: rgba(252, 59, 86, 0.35);
+      --gold-accent: #e5b80b;
+      --text-main: #e6e9ef;
+      --text-muted: #8a90a0;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      min-height: 100vh;
+      padding: 40px 16px 80px;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      background-image: 
+        radial-gradient(circle at top center, rgba(252, 59, 86, 0.06) 0%, transparent 60%),
+        linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.4) 51%);
+      background-size: 100% 100%, 100% 4px;
+    }
+
+    .nexus-wrapper {
+      width: 100%;
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Terminal Window Frame */
+    .terminal-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(252, 59, 86, 0.04);
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .terminal-card:hover {
+      border-color: rgba(252, 59, 86, 0.3);
+    }
+
+    /* Top Title Bar */
+    .terminal-bar {
+      background-color: #12141c;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .traffic-lights {
+      display: flex;
+      gap: 7px;
+    }
+
+    .light {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .light-red { background: #fc3b56; }
+    .light-yellow { background: #e5b80b; }
+    .light-green { background: #28ca41; }
+
+    .terminal-title {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Direct Audio ON/OFF Toggle Button */
+    .audio-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(252, 59, 86, 0.3);
+      padding: 5px 12px;
+      border-radius: 999px;
+      color: var(--text-main);
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .audio-toggle-btn:hover {
+      background: rgba(252, 59, 86, 0.15);
+      border-color: var(--red-accent);
+      color: #fff;
+    }
+
+    .audio-toggle-btn.playing {
+      background: var(--red-accent);
+      color: #fff;
+      box-shadow: 0 0 12px var(--red-glow);
+    }
+
+    .eq-wave {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 10px;
+    }
+
+    .eq-bar {
+      width: 2px;
+      background: currentColor;
+      height: 3px;
+      border-radius: 1px;
+    }
+
+    .playing .eq-bar:nth-child(1) { animation: eqBounce 0.6s infinite ease-in-out; }
+    .playing .eq-bar:nth-child(2) { animation: eqBounce 0.8s infinite ease-in-out; }
+    .playing .eq-bar:nth-child(3) { animation: eqBounce 0.5s infinite ease-in-out; }
+
+    @keyframes eqBounce {
+      0%, 100% { height: 3px; }
+      50% { height: 10px; }
+    }
+
+    .terminal-body {
+      padding: 36px 32px;
+    }
+
+    /* Header Section */
+    .header-hero {
+      text-align: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-bottom: 6px;
+      text-shadow: 0 0 20px var(--red-glow);
+    }
+
+    .brand-title span {
+      color: var(--red-accent);
+    }
+
+    .brand-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--red-accent);
+      background: rgba(252, 59, 86, 0.08);
+      border: 1px solid rgba(252, 59, 86, 0.25);
+      padding: 4px 14px;
+      border-radius: 999px;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .typing-box {
+      margin: 12px auto;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .typing-box img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Fast Action Badge Grid */
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      background: var(--card-inner);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+
+    .badge-btn.live {
+      background: var(--red-accent);
+      color: #ffffff;
+      border-color: var(--red-accent);
+      box-shadow: 0 0 16px var(--red-glow);
+    }
+
+    .badge-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--red-accent);
+      color: #ffffff;
+    }
+
+    /* Executive Summary Block */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--gold-accent);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .section-label i {
+      color: var(--red-accent);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 28px;
+      align-items: center;
+      background: var(--card-inner);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .summary-text h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .summary-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .summary-text ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .summary-text li strong {
+      color: var(--text-main);
+    }
+
+    .summary-text a {
+      color: var(--red-accent);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .avatar-wrapper {
+      text-align: center;
+    }
+
+    .avatar-wrapper img {
+      width: 150px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 2px solid var(--red-accent);
+      box-shadow: 0 0 20px var(--red-glow);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .avatar-wrapper sub {
+      display: block;
+      margin-top: 8px;
+      font-size: 10px;
+      color: var(--gold-accent);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* Weapons / Tech Matrix */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stack-col {
+      background: var(--card-inner);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .stack-col h4 {
+      font-size: 12px;
+      color: var(--gold-accent);
+      margin-bottom: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .stack-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .stack-col li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stack-col li::before {
+      content: "✦";
+      color: var(--red-accent);
+      font-size: 10px;
+    }
+
+    /* Auto Canvas Mini-Game */
+    .game-container {
+      position: relative;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(252, 59, 86, 0.3);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+    }
+
+    #gameCanvas {
+      width: 100%;
+      height: 180px;
+      display: block;
+    }
+
+    .game-overlay-tag {
+      position: absolute;
+      top: 10px;
+      left: 14px;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      background: rgba(18, 20, 28, 0.85);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      pointer-events: none;
+    }
+
+    .game-score-tag {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 9px;
+      font-weight: 700;
+      color: #28ca41;
+      background: rgba(18, 20, 28, 0.85);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      pointer-events: none;
+    }
+
+    /* Diagnostics Telemetry */
+    .telemetry-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stats-pair {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .stats-pair img, .streak-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Founder Note Footer */
+    .founder-note {
+      text-align: center;
+      background: var(--card-inner);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      padding: 28px 20px;
+      position: relative;
+    }
+
+    .founder-note blockquote {
+      font-size: 14px;
+      font-style: italic;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .terminal-log {
+      margin-top: 14px;
+      font-size: 11px;
+      color: #636b80;
+    }
+
+    @media (max-width: 768px) {
+      .summary-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .avatar-wrapper {
+        order: -1;
+      }
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+      .brand-title {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nexus-wrapper">
+    
+    <!-- Main Shell Terminal Card -->
+    <div class="terminal-card">
+      
+      <!-- OS Top Bar With Direct Audio Engine Toggle -->
+      <div class="terminal-bar">
+        <div class="traffic-lights">
+          <span class="light light-red"></span>
+          <span class="light light-yellow"></span>
+          <span class="light light-green"></span>
+        </div>
+        <span class="terminal-title"> @Deans_Universe // production.sys</span>
+
+        <!-- Direct 1-Click Audio Button -->
+        <button id="bgmToggleBtn" class="audio-toggle-btn" title="Toggle Soundtrack">
+          <div class="eq-wave">
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+          </div>
+          <span id="bgmLabel">AUDIO: OFF</span>
+          <i class="fa-solid fa-volume-xmark" id="bgmIcon"></i>
+        </button>
+      </div>
+
+      <div class="terminal-body">
+        
+        <!-- Header Hero -->
+        <header class="header-hero">
+          <div class="brand-badge">⚡ Full-Stack Architect // Spatial & Kinetic UI</div>
+          <h1 class="brand-title">𝕯𝖊𝖆𝖓'𝖘 <span>𝖀𝖓𝖎𝖛𝖊𝖗𝖘𝖊</span> 🍃</h1>
+          
+          <!-- Live SVG Dynamic Header -->
+          <div class="typing-box">
+            <a href="https://cericulam.netlify.app/" target="_blank">
+              <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=19&duration=3000&pause=1000&color=FC3B56&center=true&vCenter=true&width=650&lines=Dinesh+Yadav+%2F%2F+Engineering+Living+Motion.;Zero+Boring+Templates.+Zero+Bloat.;Full-Stack+Web+%26+Interactive+Spatial+Systems.;Written%E2%80%94it's+battle-forged%2C+not+typed." alt="Dean Typing Telemetry" />
+            </a>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="badge-bar">
+            <a href="https://cericulam.netlify.app/" target="_blank" class="badge-btn live">
+              <i class="fa-solid fa-bolt"></i> Live Production Hub
+            </a>
+            <a href="https://github.com/DEANSUNIVERSE" target="_blank" class="badge-btn">
+              <i class="fa-brands fa-github"></i> DEANSUNIVERSE
+            </a>
+            <a href="https://youtube.com/@deans_universe" target="_blank" class="badge-btn">
+              <i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube
+            </a>
+            <a href="https://www.instagram.com/eren_jeahger" target="_blank" class="badge-btn">
+              <i class="fa-brands fa-instagram" style="color: #e4405f;"></i> Instagram
+            </a>
+            <a href="mailto:epicgameglider@gmail.com" class="badge-btn">
+              <i class="fa-solid fa-envelope" style="color: var(--red-accent);"></i> Dispatch
+            </a>
+          </div>
+        </header>
+
+        <div style="height: 32px;"></div>
+
+        <!-- 01 // Executive Summary -->
+        <section>
+          <div class="section-label">
+            <i class="fa-solid fa-terminal"></i> 01 // Executive Summary & Value Proposition
+          </div>
+
+          <div class="summary-grid">
+            <div class="summary-text">
+              <h3>Hey, I'm Dinesh (Dean) 👋</h3>
+              <p>
+                I engineer <b>production-ready, high-velocity web applications</b> that bridge cutthroat programming logic with living visual motion. No sluggish boilerplate, no generic drag-and-drop templates.
+              </p>
+              <ul>
+                <li>🚀 <strong>Core Focus:</strong> Three.js Spatial 3D, GSAP Motion Choreography & Full-Stack Systems.</li>
+                <li>⚡ <strong>Philosophy:</strong> Written—it's battle-forged under pressure, never typed carelessly.</li>
+                <li>📍 <strong>Flagship Hub:</strong> <a href="https://cericulam.netlify.app/" target="_blank">cericulam.netlify.app</a></li>
+              </ul>
+            </div>
+
+            <div class="avatar-wrapper">
+              <img crossorigin="anonymous" src="https://images.weserv.nl/?url=i.pinimg.com/736x/e8/94/98/e894980513fab0daba640d166222e49a.jpg" alt="Dinesh (Dean) Avatar" />
+              <sub>Codename: Dean</sub>
+            </div>
+          </div>
+        </section>
+
+        <div style="height: 32px;"></div>
+
+        <!-- 02 // Production Weaponry Matrix -->
+        <section>
+          <div class="section-label">
+            <i class="fa-solid fa-shield-halved"></i> 02 // Verified Arsenal & Weapons
+          </div>
+
+          <div class="stack-grid">
+            <!-- Col 1 -->
+            <div class="stack-col">
+              <h4>Frontend & Spatial</h4>
+              <ul>
+                <li>JavaScript (ES6+)</li>
+                <li>Three.js (3D Scenes)</li>
+                <li>GSAP (Motion Timelines)</li>
+                <li>Modern CSS3 / Neumorphic</li>
+                <li>Tailwind CSS / Bootstrap</li>
+                <li>Fluid Adaptive Viewports</li>
+              </ul>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="stack-col">
+              <h4>Backend & Database</h4>
+              <ul>
+                <li>Node.js Runtime</li>
+                <li>Express.js Framework</li>
+                <li>MongoDB / Mongoose ODM</li>
+                <li>RESTful API Architecture</li>
+                <li>Asynchronous Data Pipelines</li>
+                <li>Serverless Web3Forms</li>
+              </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="stack-col">
+              <h4>DevOps & Cloud</h4>
+              <ul>
+                <li>Git Version Control</li>
+                <li>GitHub CI/CD Actions</li>
+                <li>Netlify Cloud Deployments</li>
+                <li>Render Web Hosting</li>
+                <li>VS Code Custom Profiling</li>
+                <li>Zero-Bloat Asset Caching</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div style="height: 32px;"></div>
+
+        <!-- 03 // Automatic Canvas Game Module -->
+        <section>
+          <div class="section-label">
+            <i class="fa-solid fa-gamepad"></i> 03 // Kinetic Engine Simulator (Auto-Playing / Interactive) (っ◔◡◔)っ ♥ Because You Are Noob ♥
+          </div>
+
+          <div class="game-container">
+            <canvas id="gameCanvas"></canvas>
+            <div class="game-overlay-tag">AI DEFENSE AUTO-SIMULATION // HOVER TO OVERRIDE</div>
+            <div class="game-score-tag">DEBRIS PURGED: <span id="gameScore">0</span></div>
+          </div>
+        </section>
+
+        <div style="height: 32px;"></div>
+
+        <!-- 04 // Telemetry & Real-Time Stats -->
+        <section>
+          <div class="section-label">
+            <i class="fa-solid fa-chart-line"></i> 04 // Performance & GitHub Telemetry
+          </div>
+
+          <div class="telemetry-row">
+            <div class="stats-pair">
+              <img src="https://i.pinimg.com/1200x/c2/8d/6d/c28d6d9e2a237f8885d2b302979355af.jpg" alt="Dean's GitHub Stats" />
+              <img src="https://i.pinimg.com/1200x/43/77/42/4377422566c16120620d89f58f1390fb.jpg" alt="Top Languages" />
+            </div>
+
+            <div class="streak-img">
+              <img src="https://streak-stats.demolab.com/?user=DEANSUNIVERSE&theme=tokyonight&hide_border=true&background=141720&ring=fc3b56&fire=e5b80b&currStreakLabel=fc3b56" alt="Dean's Streak Counter" />
+            </div>
+          </div>
+        </section>
+
+        <div style="height: 32px;"></div>
+
+        <!-- 05 // Founder Verdict -->
+        <footer class="founder-note">
+          <blockquote>
+            “Static CVs only tell half the story. Weak layouts die in silence—true architecture commands the screen.”
+          </blockquote>
+          
+          <a href="https://cericulam.netlify.app/" target="_blank" class="badge-btn live" style="padding: 12px 28px; font-size: 12px;">
+            <i class="fa-solid fa-bolt"></i> Launch Production Portfolio ✦
+          </a>
+
+          <div class="terminal-log">
+            <code>console.log("Status: Ready to deploy, build, and scale.");</code>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Audio Element (Direct Toggle) -->
+  <audio id="bgmAudio" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cyberpunk-2099-10701.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Sound Toggle & Auto Canvas Game Script -->
+  <script>
+    /* ========================================================= */
+    /* 1. DIRECT AUDIO ON / OFF ENGINE */
+    /* ========================================================= */
+    const audio = document.getElementById('bgmAudio');
+    const bgmBtn = document.getElementById('bgmToggleBtn');
+    const bgmLabel = document.getElementById('bgmLabel');
+    const bgmIcon = document.getElementById('bgmIcon');
+
+    bgmBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          bgmBtn.classList.add('playing');
+          bgmLabel.textContent = 'AUDIO: ON';
+          bgmIcon.className = 'fa-solid fa-volume-high';
+        }).catch(err => {
+          console.warn("Audio play blocked by browser policy:", err);
+        });
+      } else {
+        audio.pause();
+        bgmBtn.classList.remove('playing');
+        bgmLabel.textContent = 'AUDIO: OFF';
+        bgmIcon.className = 'fa-solid fa-volume-xmark';
+      }
+    });
+
+    /* ========================================================= */
+    /* 2. AUTOMATIC MATRIX DEFENDER CANVAS GAME */
+    /* ========================================================= */
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreEl = document.getElementById('gameScore');
+
+    let w = canvas.width = canvas.offsetWidth;
+    let h = canvas.height = canvas.offsetHeight;
+
+    window.addEventListener('resize', () => {
+      w = canvas.width = canvas.offsetWidth;
+      h = canvas.height = canvas.offsetHeight;
+    });
+
+    const ship = {
+      x: 40,
+      y: h / 2,
+      targetY: h / 2,
+      isAuto: true
+    };
+
+    let bullets = [];
+    let enemies = [];
+    let particles = [];
+    let score = 0;
+    let lastShoot = 0;
+    let lastEnemy = 0;
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      ship.targetY = e.clientY - rect.top;
+      ship.isAuto = false;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      ship.isAuto = true;
+    });
+
+    function gameLoop(timestamp) {
+      ctx.fillStyle = 'rgba(9, 10, 13, 0.35)';
+      ctx.fillRect(0, 0, w, h);
+
+      if (ship.isAuto) {
+        if (enemies.length > 0) {
+          ship.targetY = enemies[0].y;
+        } else {
+          ship.targetY = (h / 2) + Math.sin(timestamp * 0.003) * (h * 0.35);
+        }
+      }
+      ship.y += (ship.targetY - ship.y) * 0.12;
+
+      ctx.fillStyle = '#fc3b56';
+      ctx.shadowColor = '#fc3b56';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.moveTo(ship.x + 16, ship.y);
+      ctx.lineTo(ship.x - 8, ship.y - 8);
+      ctx.lineTo(ship.x - 4, ship.y);
+      ctx.lineTo(ship.x - 8, ship.y + 8);
+      ctx.closePath();
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      if (timestamp - lastShoot > 180) {
+        bullets.push({ x: ship.x + 18, y: ship.y, speed: 7 });
+        lastShoot = timestamp;
+      }
+
+      if (timestamp - lastEnemy > 550) {
+        enemies.push({
+          x: w + 20,
+          y: Math.random() * (h - 30) + 15,
+          size: Math.random() * 6 + 6,
+          speed: Math.random() * 2 + 2.5
+        });
+        lastEnemy = timestamp;
+      }
+
+      ctx.fillStyle = '#e5b80b';
+      bullets.forEach((b, bIdx) => {
+        b.x += b.speed;
+        ctx.fillRect(b.x, b.y - 1.5, 9, 3);
+        if (b.x > w) bullets.splice(bIdx, 1);
+      });
+
+      enemies.forEach((en, eIdx) => {
+        en.x -= en.speed;
+        ctx.fillStyle = '#00e5ff';
+        ctx.beginPath();
+        ctx.arc(en.x, en.y, en.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        bullets.forEach((b, bIdx) => {
+          const dist = Math.hypot(b.x - en.x, b.y - en.y);
+          if (dist < en.size + 4) {
+            for (let i = 0; i < 7; i++) {
+              particles.push({
+                x: en.x,
+                y: en.y,
+                vx: (Math.random() - 0.5) * 5,
+                vy: (Math.random() - 0.5) * 5,
+                alpha: 1
+              });
+            }
+            enemies.splice(eIdx, 1);
+            bullets.splice(bIdx, 1);
+            score += 10;
+            scoreEl.textContent = score;
+          }
+        });
+
+        if (en.x < -20) enemies.splice(eIdx, 1);
+      });
+
+      particles.forEach((p, pIdx) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.alpha -= 0.04;
+        ctx.fillStyle = `rgba(252, 59, 86, ${Math.max(0, p.alpha)})`;
+        ctx.fillRect(p.x, p.y, 2.5, 2.5);
+        if (p.alpha <= 0) particles.splice(pIdx, 1);
+      });
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    requestAnimationFrame(gameLoop);
+  </script>
+</body>
+</html>
